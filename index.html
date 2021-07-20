@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+</head>
+
+<body>
+    <h2>Password Generator</h2>
+    <div>
+        <label for="passwordLengthInput">password Length</label>
+        <input type="number" id="passwordLengthInput" min="6">
+    </div>
+    <div>
+        <label for="includeUpperCaseLettersInput"> include upper case letters</label>
+        <input type="checkbox" id="includeUpperCaseLettersInput">
+    </div>
+    <div>
+        <label for="includeNumbersInput">include numbers</label>
+        <input type="checkbox" id="includeNumbersInput">
+    </div>
+    <div>
+        <label for="includeSpecialSymbols">include special symbols</label>
+        <input type="checkbox" id="includeSpecialSymbols">
+    </div>
+    <button id="generatePasswordButton"> generate password</button>
+    <div>
+        <label for="resultBox">result </label>
+        <input type="text" id="resultBox" readonly>
+        <button id="copyPasswordButton"> copy password </button>
+    </div>
+    <div id="errorMessageBox"> </div>
+<script src="index.js"></script>
+</body>
+
+</html>
