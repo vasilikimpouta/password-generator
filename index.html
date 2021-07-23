@@ -12,7 +12,7 @@
     <h2>Password Generator</h2>
     <div>
         <label for="passwordLengthInput">password Length</label>
-        <input type="number" id="passwordLengthInput" min="6">
+        <input type="number" id="passwordLengthInput" min="6" value="8">
     </div>
     <div>
         <label for="includeUpperCaseLettersInput"> include upper case letters</label>
@@ -29,7 +29,7 @@
     <button id="generatePasswordButton"> generate password</button>
     <div>
         <label for="resultBox">result </label>
-        <input type="text" id="resultBox" readonly>
+        <div id="resultBox"> </div>
         <button id="copyPasswordButton"> copy password </button>
     </div>
     <div id="errorMessageBox"> </div>

@@ -1,7 +1,7 @@
 const passwordLengthInput = document.getElementById('passwordLengthInput')
 const includeUpperCaseLettersInput = document.getElementById('includeUpperCaseLettersInput')
 const includeNumbersInput = document.getElementById('includeNumbersInput')
-const includeSpecialSymbols = document.getElementById('includeSpecialSymbols')
+const includeSpecialSymbolsInput = document.getElementById('includeSpecialSymbols')
 const generatePasswordButton = document.getElementById('generatePasswordButton')
 const copyPasswordButton = document.getElementById('copyPasswordButton')
 const resultBox = document.getElementById('resultBox')
@@ -32,17 +32,38 @@ function getNextCharacter(choice) {
         return getRandom(10)
     }
 }
+
+function getChoices() {
+    const includeUpperCaseLetters = includeUpperCaseLettersInput.checked
+    const includeSpecialSymbols = includeSpecialSymbolsInput.checked
+    const includeNumbers = includeNumbersInput.checked
+    const choices = [0]
+    if (includeUpperCaseLetters) {
+        choices.push(1)
+    }
+    if (includeSpecialSymbols) {
+        choices.push(2)
+    }
+    if (includeNumbers) {
+        choices.push(3)
+    }
+    return choices
+}
+
+
+
 function generatePassword() {
     let result = ''
+    const choices = getChoices()
     for (let i = 1; i <= passwordLengthInput.valueAsNumber; i++) {
-        let choice = getRandom(4)
+        let choice = choices[getRandom(choices.length)]
         result = result + getNextCharacter(choice)
     }
-    resultBox.value = result
+    resultBox.innerText = result
 }
 
 function copyPassword() {
-    const password = resultBox.value
+    const password = resultBox.innerText
     if (password.length >= 6) {
         window.navigator.clipboard.writeText(password)
             .then(() => console.log('copied'))
@@ -52,3 +73,4 @@ function copyPassword() {
 }
 generatePasswordButton.addEventListener('click', generatePassword)
 copyPasswordButton.addEventListener('click', copyPassword)
+
