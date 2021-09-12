@@ -1,0 +1,38 @@
+:root {
+    --darker : #4d6a6d;
+    --dark   : #798478;
+    --medium : ##A0A083;
+    --ligth  : #C9ADA1;
+    --lighter: #EAE0CC;
+}
+
+body {
+    font-size: 16px;
+    display  : flex;
+    flex-direction: column;
+    align-items: center;
+    height: 99vh;
+    padding: 0;
+    margin: 0;
+}
+
+.input-container {
+    
+}
+
+button {
+    outline: none;
+    border : none;
+}
+
+.button {
+    border          : 3px solid var(--darker);
+    background-color: var(--lighter);
+    padding         : 10px 20px;
+
+}
+
+.button:hover {
+    cursor          : pointer;
+    background-color: var(--light);
+}

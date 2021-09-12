@@ -9,7 +9,7 @@ const errorMessageBox = document.getElementById('errorMessageBox')
 
 const lowerCaseLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 const upperCaseLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-const specialSymbols = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '+', '_', ';', ':', '<', ',', '>', '.', '/', '?']
+const specialSymbols = ['!', '@', '#', '$', '%','&', '*', '+', '_', '.', '?']
 
 function getRandom(limit) {
     let random = Math.random()
@@ -62,11 +62,16 @@ function generatePassword() {
     resultBox.innerText = result
 }
 
+function showSuccessMessage() {
+    console.log ("copied")
+}
+
 function copyPassword() {
     const password = resultBox.innerText
     if (password.length >= 6) {
         window.navigator.clipboard.writeText(password)
-            .then(() => console.log('copied'))
+            .then(showSuccessMessage)
+            .catch((error) => errorMessageBox.innerText = error) 
     } else {
         errorMessageBox.innerText = 'password is not generated!'
     }
